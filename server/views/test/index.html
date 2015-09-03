@@ -43,6 +43,13 @@
     </script>
 </head>
 <body>
+    {% for item in data %}
+        <div style="border:1px solid Red; padding:10px;">
+            <p>이름 : {{ item.username }}</p>
+            <p>이메일 : {{ item.email }}</p>
+            <p>등록일 : {{ item.create_time }}</p>
+        </div>
+    {%- endfor %}
     <input type="text" id="user" value="" />
     <button type="button" onclick="fncConnect()">사용자 등록</button>
 

@@ -38,5 +38,17 @@ module.exports = [
         method: 'GET',
         path: '/fonts/{path*}',
         config: controller.assets.fonts
+    },
+    /*
+        오류 페이지 처리
+     */
+    {
+        method: '*',
+        path: '/{path*}', // catch-all path
+        handler : function(request, reply){
+            reply.view("404", {
+                title : "Total Bummer 404 Page"
+            }).code(404);
+        }
     }
 ];

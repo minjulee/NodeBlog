@@ -30,5 +30,12 @@ module.exports = {
             js:["js/main.js"],
             css:["css/main.css"]
         }
+    },
+    dbConfig : {
+        host : "100minser.cloudapp.net",
+        port: "3306",
+        user: "minama",
+        password:"L!M@J#192458",
+        database: "blog"
     }
 };

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="/socket.io/socket.io.js"></script>
+    <!--[if lt IE 9]>
+    {% for item in assets.ie9Js %}
+    <script src="/{{item}}{{version.cache}}"></script>
+    {% endfor %}
+    <![endif]-->
+    {% for item in assets.topJs %}
+    <script src="/{{item}}{{version.cache}}"></script>
+    {% endfor %}
+    <script>
+        var socket = io.connect("http://localhost:3000");
+
+        function fncConnect(){
+            var userName = $("#user").val();
+            if(userName != "" && userName != undefined){
+                socket.emit("add user", userName);
+            }
+        }
+
+        socket.on("user joined", function(data){
+            $("#list").append("<p>" + data.username + "님이 로그인 하셨습니다.</p>");
+        });
+
+        // Sends a chat message
+        function fncSendMessage () {
+            var message = $("#message").val();
+            socket.emit('new message', message);
+        }
+
+        socket.on("new message", function(data){
+            fncReceiveMessage(data);
+        });
+
+        function fncReceiveMessage(data){
+            $("#list").append("<p>" + data.username + " : " + data.message + "</p>");
+        }
+
+    </script>
+</head>
+<body>
+    <input type="text" id="user" value="" />
+    <button type="button" onclick="fncConnect()">사용자 등록</button>
+
+    <div id="list" style="width:400px; height:400px; border:1px solid red;">
+
+    </div>
+    <input type="text" id="message" />
+    <button type="button" onclick="fncSendMessage()">전송</button>
+
+    <ul class="menu">
+        <li><a href="{{path.index}}">HomePage</a></li>
+        <li><a href="{{path.send}}">About</a></li>
+    </ul>
+    {% for item in assets.bottomJs %}
+    <script src="/{{item}}{{version.cache}}"></script>
+    {% endfor %}
+</body>
+</html>

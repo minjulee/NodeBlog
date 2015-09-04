@@ -13,7 +13,6 @@ connection.connect(function(err){
 
 exports.GetSelect = function(strSql, callback){
     connection.query(strSql, function(err, rows){
-        console.log(rows);
         callback(rows);
     });
 }

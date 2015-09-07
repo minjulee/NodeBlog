@@ -31,7 +31,7 @@ server.register([
         engines: {
             html: require("swig")
         },
-        path: "./server/views"
+        path: "././public/src/views"
     });
 
     if (err) {

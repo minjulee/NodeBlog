@@ -4,15 +4,15 @@
 module.exports = {
     port: parseInt(process.env.PORT, 10) || 3000,
     host: "localhost",
-    asset:{
-        development:{
-            ie9Js:[
+    asset: {
+        development: {
+            ie9Js: [
                 "js/vendor/html5shiv.min.js"
             ],
-            topJs:[
+            topJs: [
                 "js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js"
             ],
-            bottomJs:[
+            bottomJs: [
                 "js/vendor/jquery-1.11.2.min.js",
                 "js/vendor/bootstrap.min.js",
                 "js/vendor/fastclick.min.js",
@@ -20,22 +20,22 @@ module.exports = {
                 "js/vendor/retina.min.js",
                 "js/main.js"
             ],
-            css:[
+            css: [
                 "css/bootstrap/bootstrap.min.css",
                 "css/bootstrap/font-awesome.min.css",
                 "css/main.css"
             ]
         },
-        production:{
-            js:["js/main.js"],
-            css:["css/main.css"]
+        production: {
+            js: ["js/main.js"],
+            css: ["css/main.css"]
         }
     },
-    dbConfig : {
-        host : "100minser.cloudapp.net",
+    dbConfig: {
+        host: "100minser.cloudapp.net",
         port: "3306",
         user: "minama",
-        password:"L!M@J#192458",
+        password: "L!M@J#192458",
         database: "blog"
     }
 };

@@ -11,7 +11,6 @@ var goodOptions = {
 var server = reqlib("/server");
 
 // load multiple plugins
-require("typescript-require")
 server.register([
     {
         register: require("good"),

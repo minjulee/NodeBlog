@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>404</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    {% for item in assets.css %}
+    <link rel="stylesheet" href="/{{item}}{{version.cache}}" />
+    {% endfor %}
+    <!--[if lt IE 9]>
+    {% for item in assets.ie9Js %}
+    <script src="/{{item}}{{version.cache}}"></script>
+    {% endfor %}
+    <![endif]-->
+    {% for ab in assets.topJs %}
+    <script src="/{{item}}{{version.cache}}"></script>
+    {% endfor %}
 </head>
 <body>
-    <p>You found a missing page, but won the 404 error!</p>
+<section class="hero-image-404"></section>
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <h1 class="title-404">Page not found</h1>
+            <p class="p-404">Sorry, but the page you were trying to view does not exist.</p>
+        </div>
+    </div>
+</section>
+
+{% for item in assets.bottomJs %}
+<script src="/{{item}}{{version.cache}}"></script>
+{% endfor %}
 </body>
 </html>

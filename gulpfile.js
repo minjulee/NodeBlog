@@ -1,32 +1,26 @@
 var gulp = require('gulp');
-var exec = require('child_process').exec;
+var spawn = require('child_process').spawn;
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var minifyhtml = require('gulp-minify-html');
-var sass = require('gulp-sass');
+var node;
 
 var src = 'public/src';
 var dist = 'public/dist';
 
 var paths = {
-    js: src + '/js/**/*.js',
-    css: src + '/css/**/*.css',
-    //scss: src + '/scss/*.scss',
+    js_required : src + '/js/required/*.js',
+    js_combine: src + '/js/vendor/*.js',
+    js_main : src + '/js/*.js',
+    css_boot : src + "/css/bootstrap/*.css",
+    css_font : src + '/css/font/*.css',
+    css_main: src + '/css/*.css',
     html: src + '/views/**/*.html'
 };
 
-// 웹서버를 localhost:8000 로 실행한다.
-gulp.task('server', function (cb) {
-    exec("node server.js", function(err, stdout, stderr){
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
-});
-
 // 자바스크립트 파일을 하나로 합치고 압축한다.
 gulp.task('combine-js', function () {
-    return gulp.src(paths.js)
+    return gulp.src([paths.js_required, paths.js_combine, paths.js_main])
         .pipe(concat('script.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dist + '/js'));
@@ -34,8 +28,8 @@ gulp.task('combine-js', function () {
 
 // 스타일시트 파일을 하나로 합치고 압축한다.
 gulp.task('combine-css', function () {
-    return gulp.src(paths.css)
-        .pipe(concat('style.css'))
+    return gulp.src([paths.css_boot, paths.css_font])
+        .pipe(concat('required.css'))
         .pipe(minifyhtml())
         .pipe(gulp.dest(dist + '/css'));
 });
@@ -47,13 +41,17 @@ gulp.task('compress-html', function () {
         .pipe(gulp.dest(dist + '/views'));
 });
 
-//// sass 파일을 css 로 컴파일한다.
-//gulp.task('compile-sass', function () {
-//    return gulp.src(paths.scss)
-//        .pipe(sass())
-//        .pipe(gulp.dest(dist + '/css'));
-//});
 
+// 웹서버를 localhost:8000 로 실행한다.
+gulp.task('server', function (cb) {
+    if(node) node.kill();
+    node = spawn('node', ['server.js'], {studio: 'inherit'});
+    node.on('close', function(code){
+        if(code === 8){
+            gulp.log('Error detected, waiting for changes...');
+        }
+    });
+});
 
 //기본 task 설정
 gulp.task('default', [
@@ -63,3 +61,7 @@ gulp.task('default', [
     //'compile-sass',
     'compress-html'
 ]);
+
+process.on('exit', function() {
+    if (node) node.kill()
+})

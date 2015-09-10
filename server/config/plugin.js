@@ -28,9 +28,9 @@ server.register([
 
     server.views({
         engines: {
-            html: require("swig")
+            html: require("handlebars")
         },
-        path: "././public/src/views"
+        path: "././public/dist/views"
     });
 
     if (err) {

@@ -2,6 +2,7 @@ var requireDirectory = require('require-directory');
 var controller = requireDirectory(module, '../controllers');
 
 module.exports = [
+    controller.post.posts,
     {
         method:"GET",
         path:"/",

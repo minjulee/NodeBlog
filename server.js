@@ -1,5 +1,6 @@
 global.reqlib = require("app-root-path").require;
 global.settings = reqlib("/server/config/setting");
+global.multiline = require("multiline");
 
 var Hapi = require("hapi");
 var Path = require("path");

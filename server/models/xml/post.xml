@@ -1,0 +1,25 @@
+<!--
+    설  명 : post
+    개발일 : 2015-09-10
+    개발자 : ABC
+-->
+<root>
+    <query id="postList">
+         SELECT P.Idx
+             , C.ComName Category
+             , P.Title
+             , P.SubTitle
+             , P.Contents
+             , P.Tag
+             , P.Description
+             , P.ViewCount
+             , U.Name RegName
+             , P.RegDate
+          FROM post AS P
+             , manager AS U
+             , comcode AS C
+         WHERE P.RegId = U.Id
+           AND P.DvsCode = C.DvsCode
+           AND P.ComCode = C.ComCode
+    </query>
+</root>

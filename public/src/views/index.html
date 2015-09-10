@@ -6,17 +6,9 @@
     <title>Writer Theme | Home</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    {% for item in assets.css %}
-        <link rel="stylesheet" href="/{{item}}{{version.cache}}" />
-    {% endfor %}
-    <!--[if lt IE 9]>
-    {% for item in assets.ie9Js %}
-        <script src="/{{item}}{{version.cache}}"></script>
-    {% endfor %}
-    <![endif]-->
-    {% for ab in assets.topJs %}
-        <script src="/{{item}}{{version.cache}}"></script>
-    {% endfor %}
+    <link rel="stylesheet" href="/css/required.css{{version.cache}}" />
+    <link rel="stylesheet" href="/css/main.css{{version.cache}}" />
+    <script type="text/javascript" src="/js/script.js{{version.cache}}"></script>
 </head>
 <body>
 <main class="container left-container">
@@ -272,8 +264,5 @@
     </div> <!--/row -->
 
 </main> <!-- /container -->
-    {% for item in assets.bottomJs %}
-        <script src="/{{item}}{{version.cache}}"></script>
-    {% endfor %}
 </body>
 </html>

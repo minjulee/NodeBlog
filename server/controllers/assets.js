@@ -1,9 +1,8 @@
 /**
- * Created by ABC on 2015-08-28.
- */
-/*
-    ÀÌ¹ÌÁö, ½ºÅ©¸³Æ®, ½ºÅ¸ÀÏ ÆÄÀÏ µî
- */
+    ì„¤  ëª… : post model
+    ê°œë°œì¼ : 2015-09-10
+    ê°œë°œì : ABC
+*/
 var normalPath = "public/src/";
 var distPath = "public/dist/";
 module.exports = {
@@ -18,6 +17,10 @@ module.exports = {
     js: {
         handler: { directory: { path: distPath +  "js" } },
         id: 'js'
+    },
+    angular :{
+        handler: { directory: { path: "server/models/" + "angular" } },
+        id: "angular"
     },
     fonts: {
         handler: { directory: { path: normalPath + "fonts" } },

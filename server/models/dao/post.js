@@ -1,11 +1,11 @@
 /**
-    Ό³  Έν : post model
-    °³ΉίΐΟ : 2015-09-10
-    °³ΉίΐΪ : ABC
+    μ„¤  λª… : post model
+    κ°λ°μΌ : 2015-09-10
+    κ°λ°μ : ABC
 */
 var model = reqlib("/server/config/mysql.js");
 exports.GetPostList = function(req, callback){
-    model.GetSelect("post.xml", "postList", function(data){
+    model.GetSelectByXml(req, "post.xml", "postList", function(data){
         callback(data);
     });
 }

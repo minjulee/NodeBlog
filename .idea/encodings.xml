@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/public/dist/js/script.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/controllers/assets.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/controllers/post.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/controllers/test.js" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

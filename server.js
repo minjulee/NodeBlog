@@ -21,6 +21,7 @@ var numUsers = 0;
 
 var socketIO = require("socket.io");
 var io = socketIO.listen(server.listener);
+
 io.sockets.on("connection", function(socket){
     var addedUser = false;
 
@@ -73,6 +74,25 @@ io.sockets.on("connection", function(socket){
 });
 
 server.route(reqlib("/server/config/route"));
+
+server.ext('onPreResponse', function (request, reply) {
+
+    if (request.response.isBoom) {
+        var err = request.response;
+        var errName = err.output.payload.error;
+        var statusCode = err.output.payload.statusCode;
+        var errText = statusCode === 404
+            ? "Sorry, but the page you were trying to view does not exist."
+            : "Sorry, I will thank you If you're telling an error!!";
+        return reply.view('error', {
+            statusCode: statusCode,
+            errName: errName,
+            errText: errText
+        })
+        .code(statusCode);
+    }
+    reply.continue();
+});
 
 server.start(function(){
     console.log("Server started at : "  + server.info.uri);

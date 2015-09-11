@@ -2,13 +2,14 @@ var requireDirectory = require('require-directory');
 var controller = requireDirectory(module, '../controllers');
 
 module.exports = [
+    controller.post.index,
     controller.post.posts,
     {
         method:"GET",
         path:"/",
         handler : function(request, reply){
             reply.view("index", {
-                title : "矫累其捞瘤"
+                title : "鞁滌瀾韼橃澊歆�"
             });
         }
     },
@@ -18,7 +19,7 @@ module.exports = [
         config: controller.test.index
     },
     /*
-         沥利 牧刨明 颇老 扼快泼 汲沥
+         旮绊儉 韺岇澕 靹れ爼
      */
     {
         method: 'GET',
@@ -37,19 +38,12 @@ module.exports = [
     },
     {
         method: 'GET',
+        path: '/angular/{path*}',
+        config: controller.assets.angular
+    },
+    {
+        method: 'GET',
         path: '/fonts/{path*}',
         config: controller.assets.fonts
-    },
-    /*
-        坷幅 其捞瘤 贸府
-     */
-    {
-        method: '*',
-        path: '/{path*}', // catch-all path
-        handler : function(request, reply){
-            reply.view("404", {
-                title : "Total Bummer 404 Page"
-            }).code(404);
-        }
     }
 ];

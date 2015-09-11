@@ -1,13 +1,22 @@
 /**
-    Ό³  Έν : post controller
-    °³ΉίΐΟ : 2015-09-10
-    °³ΉίΐΪ : ABC
+    μ„¤  λª… : post controller
+    κ°λ°μΌ : 2015-09-10
+    κ°λ°μ : ABC
 */
 var model = reqlib("/server/models/dao/post.js");
 module.exports = {
+    index: {
+        method: "GET",
+        path: "/post",
+        handler: function (request, reply) {
+            reply.view("post/post", {
+                title : "νμ΄μ§€"
+            });
+        }
+    },
     posts: {
         method: "GET",
-        path: "/post/{path*}",
+        path: "/post/{category}/{Idx?}",
         handler: function (request, reply) {
             model.GetPostList(request, function (data) {
                 reply(data);

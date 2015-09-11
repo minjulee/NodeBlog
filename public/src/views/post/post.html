@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/required.css{{version.cache}}" />
+    <link rel="stylesheet" href="/css/main.css{{version.cache}}" />
+    <script type="text/javascript" src="/js/required.js{{version.cache}}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
+    <script type="text/javascript" src="/angular/post.js{{version.cache}}"></script>
+    <script type="text/javascript" src="/js/main.js{{version.cache}}"></script>
+</head>
+<body ng-app="PostApp">
+    <h1>{{title}}</h1>
+    <div ng-controller="PostController">
+        <div ng-repeat="post in posts">
+            <p>[[post.Category]]</p>
+            <p>[[post.Title]]</p>
+            <p>[[post.RegName]]</p>
+            <p>[[post.RegDate]]</p>
+            <p ng-bind-html="post.Contents"></p>
+        </div>
+    </div>
+</body>
+</html>

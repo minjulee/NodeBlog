@@ -30,7 +30,7 @@ server.register([
         engines: {
             html: require("handlebars")
         },
-        path: "././public/dist/views"
+        path: "././public/src/views"
     });
 
     if (err) {

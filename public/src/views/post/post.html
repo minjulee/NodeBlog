@@ -9,6 +9,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
     <script type="text/javascript" src="/angular/post.js{{version.cache}}"></script>
     <script type="text/javascript" src="/js/main.js{{version.cache}}"></script>
+    <script type="text/javascript" src="/plugin/tinymce/tinymce.min.js"></script>
 </head>
 <body ng-app="PostApp">
     <h1>{{title}}</h1>
@@ -21,5 +22,31 @@
             <p ng-bind-html="post.Contents"></p>
         </div>
     </div>
+    <textarea name="content" style="width:100%;"></textarea>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            tinymce.init({
+                selector:"textarea",
+                language : 'ko_KR',
+                plugins: ["image"],
+                file_browser_callback: function(field_name, url, type, win){
+                    var cmsURL = "/fileManager/test?" + field_name;
+
+                    tinymce.activeEditor.windowManager.open({
+                        file : cmsURL,
+                        title : "Select an Image",
+                        width : 800,
+                        height: 600,
+                        resizable : "yes",
+                        inline : "yes",
+                        close_previous : "yes"
+                    }, {
+                        window : win,
+                        input  : field_name
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

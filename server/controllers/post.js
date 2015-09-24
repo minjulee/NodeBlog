@@ -14,11 +14,25 @@ module.exports = {
             });
         }
     },
+    // 카테고리별 리스트
     posts: {
         method: "GET",
-        path: "/post/{category}/{Idx?}",
-        handler: function (request, reply) {
-            model.GetPostList(request, function (data) {
+        path: "/post/{category}/{page}/{pageSize?}",
+        handler: function (req, reply) {
+            if(!req.params.pageSize){
+                req.params.pageSize = 5;
+            }
+            model.GetPostCategoryList(req, function (data) {
+                reply(data);
+            });
+        }
+    },
+    // 게시글 상세
+    post : {
+        method : "GET",
+        path : "/post/{category}/{Idx}",
+        handler: function (req, reply){
+            model.GetPost(req, function(data){
                 reply(data);
             });
         }

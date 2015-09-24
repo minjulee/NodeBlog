@@ -3,16 +3,16 @@
     개발일: 2015-09-11
     개발자 : ABC
  */
-var app = angular.module("PostApp", ["ngSanitize"]);
+var app = angular.module("FileManagerApp", ["ngSanitize"]);
 
-app.controller("PostController", function($scope, $http){
+app.controller("FileManagerController", function($scope, $http){
 
     $scope.init = function(category, idx){
         $scope.category = category;
         $scope.idx = idx;
     };
 
-    $http.get("/post/개발/1").success(function(data){
+    $http.get("/fileManager/dirInfo").success(function(data){
         $scope.posts = data;
         console.log(data);
     }).error(function(data){

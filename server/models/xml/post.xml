@@ -21,7 +21,30 @@
          WHERE P.RegId = U.Id
            AND P.DvsCode = C.DvsCode
            AND P.ComCode = C.ComCode
+           AND C.ComName = IF('{0.category}' = '', C.ComName, '{0.category}')
+         ORDER BY
+               P.RegDate DESC
+         LIMIT {0.page}, {0.pageSize}
+    </query>
+
+    <query id="post">
+         SELECT P.Idx
+             , C.ComName Category
+             , P.Title
+             , P.SubTitle
+             , P.Contents
+             , P.Tag
+             , P.Description
+             , P.ViewCount
+             , U.Name RegName
+             , P.RegDate
+          FROM post AS P
+             , manager AS U
+             , comcode AS C
+         WHERE P.RegId = U.Id
+           AND P.DvsCode = C.DvsCode
+           AND P.ComCode = C.ComCode
+           AND C.ComName = IF('{0.category}' = '', C.ComName, '{0.category}')
            AND P.Idx = {0.Idx}
-           AND C.ComName = '{0.category}'
     </query>
 </root>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var  testObj = [1, 2, 3];
+        function FunReflexive(obj)
+        {
+            if(obj.length > 0){
+                for(var i = 0 ; i < obj.length; i++){
+                    if(obj[i] === 2){
+                        alert(obj[i]);
+                    }else{
+                        FunReflexive(obj[i]);
+                    }
+                }
+            }else{
+                alert(obj);
+            }
+        }
+
+        FunReflexive(testObj);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

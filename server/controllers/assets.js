@@ -22,6 +22,10 @@ module.exports = {
         handler: { directory: { path: "server/models/" + "angular" } },
         id: "angular"
     },
+    plugin :{
+        handler : {directory: {path : normalPath + "plugin"} },
+        id : "plugin"
+    },
     fonts: {
         handler: { directory: { path: normalPath + "fonts" } },
         id: 'fonts'

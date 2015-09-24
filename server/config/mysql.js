@@ -1,13 +1,13 @@
 /**
-    ¼³  ¸í : MySQL module
-    °³¹ßÀÏ : 2015-09-10
-    °³¹ßÀÚ : ABC
+    ì„¤  ëª… : MySQL module
+    ê°œë°œì¼ : 2015-09-10
+    ê°œë°œìž : ABC
 
-    º¯°æÀÏ : 2015-09-11
-    º¯°æÀÚ : ÀÌ¹ÎÁÖ
-    ¼³  ¸í : Xml¿¡¼­ idx = {0.idx} ¿Í °°Àº Çü½ÄÀ¸·Î Á¶°Ç¹®À» ¸¸µé°í
-             string-format ¸ðµâÀ» ÀÌ¿ëÇØ¼­ idx = {0.idx} => idx = 1 °ú °°ÀÌ ¹Ù²Û´Ù.
-    Âü  °í : https://www.npmjs.com/package/string-format
+    ìˆ˜ì •ì¼ : 2015-09-11
+    ìˆ˜ì •ìž : ABC
+    ì„¤  ëª… : XmlíŒŒì¼ idx = {0.idx} ì´ëŸ°ì‹ìœ¼ë¡œ
+             string-format ì‚¬ìš©í•˜ì—¬ idx = {0.idx} => idx = 1 ë§¤ì¹­
+    ì°¸  ì¡° : https://www.npmjs.com/package/string-format
 */
 // import noe_modules
 var mysql = require("mysql");

@@ -18,6 +18,8 @@ module.exports = [
         path: "/test",
         config: controller.test.index
     },
+    controller.fileManager.dirInfo,
+    controller.fileManager.test,
     /*
          기타 파일 설정
      */
@@ -40,6 +42,11 @@ module.exports = [
         method: 'GET',
         path: '/angular/{path*}',
         config: controller.assets.angular
+    },
+    {
+        method: "GET",
+        path: "/plugin/{path*}",
+        config: controller.assets.plugin
     },
     {
         method: 'GET',

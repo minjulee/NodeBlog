@@ -4,8 +4,14 @@
     개발자 : ABC
 */
 var model = reqlib("/server/config/mysql.js");
-exports.GetPostList = function(req, callback){
+exports.GetPostCategoryList = function(req, callback){
     model.GetSelectByXml(req, "post.xml", "postList", function(data){
+        callback(data);
+    });
+}
+
+exports.GetPost = function(req, callback){
+    model.GetSelectByXml(req, "post.xml", "post", function(data){
         callback(data);
     });
 }

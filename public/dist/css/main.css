@@ -11,7 +11,7 @@ input,
 select,
 textarea {
   color: #333337;
-  font-family: "Droid Serif", serif;
+  font-family: "굴림", "gulim", "Droid Serif", serif ;
 }
 
 /* line 24, ../sass/_type.sass */

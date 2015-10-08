@@ -19,9 +19,12 @@ module.exports = {
         method: "GET",
         path: "/post/{category}/{page}/{pageSize?}",
         handler: function (req, reply) {
+            // 페이지 변수 설정
             if(!req.params.pageSize){
                 req.params.pageSize = 5;
             }
+            req.params.page = isNaN(req.params.page) ? 0 : (req.params.page - 1) * req.params.pageSize;
+
             model.GetPostCategoryList(req, function (data) {
                 reply(data);
             });
@@ -30,7 +33,7 @@ module.exports = {
     // 게시글 상세
     post : {
         method : "GET",
-        path : "/post/{category}/{Idx}",
+        path : "/post/{Idx}",
         handler: function (req, reply){
             model.GetPost(req, function(data){
                 reply(data);

@@ -4,6 +4,7 @@ var controller = requireDirectory(module, '../controllers');
 module.exports = [
     controller.post.index,
     controller.post.posts,
+    controller.post.post,
     {
         method:"GET",
         path:"/",

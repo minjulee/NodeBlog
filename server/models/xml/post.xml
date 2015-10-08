@@ -21,7 +21,7 @@
          WHERE P.RegId = U.Id
            AND P.DvsCode = C.DvsCode
            AND P.ComCode = C.ComCode
-           AND C.ComName = IF('{0.category}' = '', C.ComName, '{0.category}')
+           AND C.ComName = IF(LOWER('{0.category}') = 'all', C.ComName, '{0.category}')
          ORDER BY
                P.RegDate DESC
          LIMIT {0.page}, {0.pageSize}
@@ -44,7 +44,6 @@
          WHERE P.RegId = U.Id
            AND P.DvsCode = C.DvsCode
            AND P.ComCode = C.ComCode
-           AND C.ComName = IF('{0.category}' = '', C.ComName, '{0.category}')
            AND P.Idx = {0.Idx}
     </query>
 </root>

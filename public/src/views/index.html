@@ -29,12 +29,11 @@
         </div>
 
         <section class="sidebar col-md-5 col-sm-12" style="background-image: url(img/default-sidebar.jpg);">
-
-                    <span class="menu-trigger animated fadeInDown">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </span>
+                <span class="menu-trigger animated fadeInDown">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
 
             <!-- if the user has javascript disabled they can still use the menu -->
             <noscript>
@@ -76,7 +75,6 @@
             </div>
             <!-- 최신 게시글 Top 5 -->
             <div class="home-page-posts animated fadeIn " ng-controller="PostController" ng-init="init('/post/all/1/5')">
-
                 <article class="post" ng-repeat="post in posts">
                     <div class="post-preview col-xs-10  no-gutter">
                         <h2><a href="post/[[post.Idx]]">[[post.Title]]</a></h2>
@@ -91,7 +89,6 @@
                         <img src="img/profile-1.jpg" class="user-icon" alt="user-image">
                     </div>
                 </article>
-
             </div><!-- Home page posts -->
 
             <div class="home-page-categories hide animated fadeIn ">
